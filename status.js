@@ -288,7 +288,9 @@ exports.start = (opts) => {
   looper = setInterval(render, settings.interval);
 };
 
-exports.setPattern = (pattern) => settings.pattern = pattern;
+exports.setPattern = (pattern, indentation) => {
+ return settings.pattern = `${indentation ? '    '.repeat( indentation ) : ''}${pattern}`;
+}
 
 exports.stop = () => {
   running = false;
