@@ -296,7 +296,6 @@ exports.stop = () => {
   running = false;
   clearTimeout(looper);
   cliCursor.show();
-  charm.end();
 };
 
 //
