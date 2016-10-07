@@ -7,11 +7,12 @@
     "email": "derrick@dpelletier.com",
     "url": "http://dpelletier.com"
   },
+  "contributors": [ "Rodolfo Aguirre Carcia <aguirreg.rodolfo@gmail.com>" ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/derrickpelletier/node-status.git"
+    "url": "http://github.com/roddolf/node-status.git"
   },
-  "homepage": "http://github.com/derrickpelletier/node-status.git",
+  "homepage": "http://github.com/roddolf/node-status.git",
   "keywords": [
     "terminal",
     "status",
@@ -27,6 +28,7 @@
     "node": ">=0.10"
   },
   "main": "status",
+  "typings": "status.d.ts",
   "dependencies": {
     "charm": "1.0.1",
     "cli-cursor": "^1.0.2",
