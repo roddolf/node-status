@@ -48,6 +48,7 @@ var Item = function (options) {
   }
   if(options.custom) this.custom = options.custom.bind(this);
   this.val = options.count || 0;
+  this._startTime = process.hrtime();
 };
 
 //
@@ -84,7 +85,9 @@ Item.prototype = {
                 : this.max;
         return (100 * this.count / max).toFixed(this.precision) + '%';
       case 'time':
-        return nicetime(this.count);
+        const difference = process.hrtime( this._startTime );
+        const currentTime = (difference[ 0 ] * 1e9 + difference[ 1 ]) / 1000000;
+        return nicetime(currentTime);
       case 'bar':
         if (!this.max) return '';
         var bar_len = 10;
