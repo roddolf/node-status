@@ -34,7 +34,7 @@ export interface StatusItem {
 
 	count:number;
 
-	doneStep( status:boolean, message?:string, indentation?:number ):void;
+	doneStep( status:boolean, message?:string | string[], indentation?:number ):void;
 	render( style:"step" | "custom" | "percentage" | "time" | "bar" | "default" | "count" ):string;
 
 	inc():void;

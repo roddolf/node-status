@@ -66,7 +66,12 @@ Item.prototype = {
   doneStep: function (success, message, indentation) {
     if(!this.steps || this.count >= this.steps.length) return;
     charm.erase('line').erase('down');
-    message = message ? ` - ${message}` : '';
+    if( Array.isArray( message ) ) {
+       message = message
+           .map( msg => `\n${ indentation ? '    '.repeat( indentation + 1 ) : '    ' }${ msg }`)
+           .join( "" );
+    }
+    message = message ? ` ${message}` : '';
     write(`${indentation ? '    '.repeat( indentation ) : ''}${success ? '✔'.green : '✖'.red} ${this.render('step')}${message}\n`);
     this.inc();
   },
