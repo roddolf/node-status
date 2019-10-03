@@ -318,3 +318,16 @@ var stamp = exports.stamp = (withPattern) => {
 // Gets the total number of cells in the bar
 //
 exports.cellCount = () => Object.keys(items).length;
+
+// Add a callback to be called on Ctrl+C
+const onTerminateFns = [];
+exports.onTerminate = function(cb) {
+  onTerminateFns.push(cb);
+};
+charm.removeAllListeners('^C');
+charm.on('^C', async function () {
+  for (const fn of onTerminateFns) {
+    await fn();
+  }
+  process.exit();
+});

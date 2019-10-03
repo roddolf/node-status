@@ -1,5 +1,5 @@
 /**
- * @author Rodolfo Aguirre Garcia <aguirreg.rodolfo@gmail.com>
+ * @author Rodolfo Aguirre <aguirreg.rodolfo@gmail.com>
  */
 
 // Manage the Status
@@ -52,7 +52,9 @@ export function removeAll();
 // Visuals
 export function toString():string;
 
-export function clean():void;
+export function clear():void;
+
+export function onTerminate(fn:Function);
 
 export interface StatusConsole {
 	log( message?:any, ...optionalParams:any[] ):void;
