@@ -326,7 +326,8 @@ exports.onTerminate = function(cb) {
 };
 charm.removeAllListeners('^C');
 charm.on('^C', async function () {
-  for (const fn of onTerminateFns) {
+  while(onTerminateFns.length) {
+    const fn = onTerminateFns.pop();
     await fn();
   }
   process.exit();
